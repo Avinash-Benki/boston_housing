@@ -13721,9 +13721,18 @@ Think about the pros and cons of adding more training points based on if the tra
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong>
-Grid Search is a technique used obtain the grid of parameters that will be searched during the K-Fold Cross Validation. It helps to fetch the best hyperparameters based on the highest F1 score.
-The Kernel and Gamma Hyperparameters are picked in the Training of a Support Vector Machine using the Grid Search Technique.</p>
-<p>By finding the highest F1 Score( Harmonic Mean of Precision and Recall) that matches parameters, we will be able to optimize the learning algorithm.</p>
+Grid Search is a technique used obtain the grid of parameters that will be searched during the K-Fold Cross Validation. 
+Grid Search gives various models in which we can supply our data and see which one provides the better insight of the data.
+Each Hyperparameter of the model can be tested and optimum results can be obtained. The metric used could be R2 score, F1 Score on the basis of what we want to use as the score measure.</p>
+<p>Grid search reduces manual effort. Hyperparameters have to be tested individually otherwise and look for optimum result by testing manually each and every parameter.
+Once we are done with the Grid search we have the best estimator and the hyperparameter set by which we can obtain optimum result.</p>
+<p>For examople:
+For linear Regression:
+Learning rate and Number of iterations can be hyperparameters
+Learning_rate = [.1,.01,.001]
+Num_iterations= [100, 500, 1000]
+These are the hyperparameters which would be tested and a best combination which has a good score of the metric is considered.
+To get the optimum results.</p>
 
 </div>
 </div>
@@ -13747,9 +13756,15 @@ The Kernel and Gamma Hyperparameters are picked in the Training of a Support Vec
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong>
-K-Fold Cross Validation Training is a technique where in we break the data into 'K' Bucket and train the model 'K' Times.
-Each time we use a different bucket as Testing data and the reamining data as our Training data.</p>
-<p>The grid search may sometimes select the hyper parameter combination that perform well only for a specific Train_Test_Split Function. Thus inorder to have optimal set of parameters without high variance we have to use the K Fold Cross validation along with the grid search to optimize a model.</p>
+K-Fold Cross Validation Training is a technique where in we break the data into 'K' Buckets.
+This breakdown is done into</p>
+<p>Cross validation Training set
+and Cross Validation Testing  Set.</p>
+<p>For a specific fold say fi, Out of k buckets or folds, k-1 is specified as Training set and the remaining is the Cross validation Testing Set.</p>
+<p>The model is tested in such a way that testing/validation is run for each of the fold or bucket mentioned.</p>
+<p>The testing/validation is run for each of the folds. calculate the accuracy of your model by validating the predicted results against the validation set.</p>
+<p>It is then possible to take an average score from across the folds to help determine the usefulness of the model.</p>
+<p>By using the K fold Cross validation technique along with the grid search, we are making sure the model is consistent across various training set which is created by the K fold Cross Validation technique. IF we dont use the K fold Cross validation along with the grid search we may fit the model only for one training set and consistency cant be guranteed.</p>
 
 </div>
 </div>
